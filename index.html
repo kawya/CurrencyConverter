@@ -1,64 +1,67 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Currency Converter</title>
-<!-- CSS Libraries -->
-<link rel="stylesheet" href="assets/css/lib/bootstrap.min.css">
-<link rel="stylesheet" href="assets/css/custom/converter.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Currency Converter</title>
+    <!-- CSS Libraries -->
+    <link rel="stylesheet" href="assets/css/lib/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/custom/converter.css">
 
-<!-- JS Libraries -->
-<script src="assets/scripts/lib/angular.min.js"></script>
-<script src="assets/scripts/lib/angular-animate.min.js"></script>
+    <!-- JS Libraries -->
+    <script src="assets/scripts/lib/angular.min.js"></script>
+    <script src="assets/scripts/lib/angular-animate.min.js"></script>
 </head>
 <body>
 
-<div ng-app="currencyConverter" class="container">
-  <div style="padding: 10px;">
-    <div class="row">
-      <h3>
-      Currency Converter
-    </h3>
-    </div>
-    <form class="row" ng-controller="converterController" novalidate>
-      <div class="form-group">
-        <div>
-          <label>Type in amount and select currency:</label>
+    <div ng-app="currencyConverter" class="container">
+      <div style="padding: 10px;">
+        <div class="row">
+          <h3>
+          Currency Converter
+        </h3>
         </div>
+        <form class="row" ng-controller="converterController" novalidate>
+          <div class="form-group">
+            <div>
+              <label>Type in amount and select currency:</label>
+            </div>
 
-        <div class="col-md-8 col-sm-8 col-xs-6">
-          <input type="number" class="form-control" placeholder="0.00" ng-model="fromCurrValue" ng-change="currencyConvert();">
-        </div>
-        <div class="col-md-4 col-sm-4 col-xs-6">
-          <select ng-model="currencyMode1" class="form-control" ng-change="currencyConvert();">
-            <option ng-repeat="currency in currencyList" ng-value="{{currency}}">{{currency}}</option>
-          </select>
-        </div>
-      </div>
-      <div class="warning" ng-show="negativeFromCurrValidation">
-        Please enter positive value for getting currency rate
-      </div>
-      <div class="form-group">
-        <div>
-          <label>Converted amount:</label>
-        </div>
+            <div class="col-md-8 col-sm-8 col-xs-6">
+              <input type="number" class="form-control" placeholder="0.00" ng-model="fromCurrValue" ng-change="currencyConvert();">
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-6">
+              <select ng-model="currencyMode1" class="form-control" ng-change="currencyConvert();">
+                <option ng-repeat="currency in currencyList" ng-value="{{currency}}">{{currency}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="warning" ng-show="negativeFromCurrValidation">
+            Please enter positive value for getting currency rate
+          </div>
+          <div class="form-group">
+            <div>
+              <label>Converted amount:</label>
+            </div>
 
-        <div class="col-md-8 col-sm-8 col-xs-6">
-          <input type="number" class="form-control" placeholder="0.00" ng-model="toCurrValue" ng-disabled="disableConvertedCurr">
-        </div>
-        <div class="col-md-4 col-sm-4 col-xs-6">
-          <select ng-model="currencyMode2" class="form-control" ng-change="currencyConvert();">
-            <option ng-repeat="currency in currencyList" ng-value="{{currency}}">{{currency}}</option>
-          </select>
+            <div class="col-md-8 col-sm-8 col-xs-6">
+              <input type="number" class="form-control" placeholder="0.00" ng-model="toCurrValue" ng-disabled="disableConvertedCurr">
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-6">
+              <select ng-model="currencyMode2" class="form-control" ng-change="currencyConvert();">
+                <option ng-repeat="currency in currencyList" ng-value="{{currency}}">{{currency}}</option>
+              </select>
+            </div>
+          </div>
+        </form>
+        <div class="row disclaimerRight" ng-click="showDisclaimer= !showDisclaimer">Disclaimer</div>
+        <div class="row" ng-show="showDisclaimer">
+          Not responsible in case of any changes in currency rates.
         </div>
       </div>
-    </form>
-    <div class="row disclaimerRight" ng-click="showDisclaimer= !showDisclaimer">Disclaimer</div>
-    <div class="row" ng-show="showDisclaimer">
-      Not responsible in case of any changes in currency rates.
     </div>
-  </div>
-</div>
-<!-- custom library -->
-<script src="assets/scripts/custom/currency-converter.js"></script>
+    <!-- custom library -->
+    <script src="assets/scripts/custom/currency-converter.js"></script>
 </body>
 </html>
