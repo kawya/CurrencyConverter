@@ -1,0 +1,17 @@
+.container {
+  border: 1px solid black;
+  margin-top: 10px;
+}
+
+.disclaimerRight {
+  text-align: right;
+  text-decoration: underline;
+  color: #337ab7;
+  padding-right: 15px;
+  cursor: pointer;
+}
+
+.warning {
+  color: red;
+  font-size: 12px;
+}
